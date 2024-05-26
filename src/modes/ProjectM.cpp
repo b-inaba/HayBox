@@ -39,7 +39,7 @@ void ProjectM::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
         outputs.triggerLDigital = inputs.l;
     }
     outputs.triggerRDigital = inputs.r;
-    outputs.start = inputs.start;
+    
 
     // Activate D-Pad layer by holding Mod X + Mod Y or Nunchuk C button.
     if ((inputs.mod_x && inputs.mod_y) || inputs.nunchuk_c) {
@@ -134,6 +134,7 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
     }
 
     if (inputs.mod_y) {
+        outputs.start = inputs.start;
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 35);
         }

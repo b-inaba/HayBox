@@ -24,7 +24,7 @@ void Ultimate::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
     outputs.buttonR = inputs.z || inputs.midshield;
     outputs.triggerLDigital = inputs.l;
     outputs.triggerRDigital = inputs.r;
-    outputs.start = inputs.start;
+    
     outputs.select = inputs.select;
     outputs.home = inputs.home;
 
@@ -156,6 +156,7 @@ void Ultimate::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
     }
 
     if (inputs.mod_y) {
+        outputs.start = inputs.start;
         // MY + Horizontal (even if shield is held) = 41
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 41);

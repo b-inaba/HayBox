@@ -30,7 +30,7 @@ void RivalsOfAether::UpdateDigitalOutputs(InputState &inputs, OutputState &outpu
         outputs.triggerLDigital = inputs.l;
     }
     outputs.triggerRDigital = inputs.r;
-    outputs.start = inputs.start;
+    
     outputs.select = inputs.select;
     outputs.home = inputs.home;
     outputs.leftStickClick = inputs.lightshield;
@@ -114,6 +114,7 @@ void RivalsOfAether::UpdateAnalogOutputs(InputState &inputs, OutputState &output
     }
 
     if (inputs.mod_y) {
+        outputs.start = inputs.start;
         if (directions.horizontal) {
             outputs.leftStickX = 128 + (directions.x * 44);
         }
