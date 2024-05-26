@@ -26,8 +26,8 @@ void FgcMode::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
         outputs.start = inputs.start;
         outputs.select = inputs.c_down;
         outputs.home = inputs.a;
-        outputs.r3 = inputs.c_right;
-        outputs.l3 = inputs.c_left;
+        outputs.rightStickClick = inputs.c_right;
+        outputs.leftStickClick = inputs.c_left;
     }
 
     // Right hand bottom row
