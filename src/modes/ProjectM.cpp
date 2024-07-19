@@ -49,10 +49,6 @@ void ProjectM::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
         outputs.dpadRight = inputs.c_right;
     }
 
-    // Don't override dpad up if it's already pressed using the MX + MY dpad
-    // layer.
-    outputs.dpadUp = outputs.dpadUp || inputs.midshield;
-
     if (inputs.select)
         outputs.dpadLeft = true;
     if (inputs.home)
@@ -75,7 +71,7 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         outputs
     );
 
-    bool shield_button_pressed = inputs.l || inputs.lightshield;
+    bool shield_button_pressed = inputs.l || inputs.lightshield || inputs.midshield;
 
     if (directions.diagonal) {
         if (directions.y == 1) {
@@ -194,7 +190,7 @@ void ProjectM::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
         outputs.leftStickX = 128 + (directions.x * 100);
     }
 
-    if (inputs.lightshield) {
+    if (inputs.lightshield || inputs.midshield) {
         outputs.triggerRAnalog = 49;
     }
 
